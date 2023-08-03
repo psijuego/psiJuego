@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyToolbarTitleStyle" parent="TextAppearance.MaterialComponents.Headline6">
+        <!-- Personaliza el tamaño y la fuente del título aquí -->
+        <item name="android:textSize">@dimen/sp16</item>
+        <item name="fontFamily">@font/roboto_regular
+        </item> <!-- Ruta al archivo de fuente personalizada en la carpeta res/font -->
+    </style>
+</resources>

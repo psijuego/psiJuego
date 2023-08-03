@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/dp0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llMore"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/dp16">
+
+            <TextView
+                android:id="@+id/indicatorName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:fontFamily="@font/roboto_regular"
+                android:text="List item"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/sp16"
+                app:layout_constraintEnd_toStartOf="@+id/btnMore"
+                app:layout_constraintStart_toEndOf="@id/btnState"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/indicatorDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp16"
+                android:layout_marginEnd="@dimen/dp16"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textMultiLine"
+                android:text="Supporting line text lorem ipsum dolor sit amet, consectetur."
+                android:textColor="?attr/colorOnSurfaceVariant"
+                android:textSize="@dimen/sp14"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/btnMore"
+                app:layout_constraintStart_toEndOf="@id/btnState"
+                app:layout_constraintTop_toBottomOf="@+id/indicatorName" />
+
+            <CheckBox
+                android:id="@+id/btnState"
+                android:layout_width="@dimen/dp32"
+                android:layout_height="@dimen/dp32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnMore"
+                android:layout_width="@dimen/dp24"
+                android:layout_height="@dimen/dp24"
+                android:clickable="false"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_arrow_right"
+                app:layout_constraintBottom_toBottomOf="@id/indicatorName"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            app:dividerInsetEnd="@dimen/dp8"
+            app:dividerInsetStart="@dimen/dp40" />
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

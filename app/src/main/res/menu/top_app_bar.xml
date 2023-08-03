@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/save"
+        android:icon="@drawable/ic_download_file"
+        android:title="@string/save"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/new_qr"
+        android:icon="@drawable/ic_qr"
+        android:title="@string/new_qr"
+        android:enabled="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_share"
+        android:title="@string/share"
+        app:showAsAction="always" />
+
+</menu>

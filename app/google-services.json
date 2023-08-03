@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031973778112",
+    "project_id": "psijuego-c8a8f",
+    "storage_bucket": "psijuego-c8a8f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031973778112:android:40cb6703d94123065df325",
+        "android_client_info": {
+          "package_name": "com.psijuego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031973778112-pl9gn8nop3osjue9a5l35cgltfndn994.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDffcyBTzG4EU187sXIt2hT2yq1aWwtiJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031973778112-pl9gn8nop3osjue9a5l35cgltfndn994.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderLayout">
+        <attr name="textHeader" format="string" />
+        <attr name="close" format="boolean" />
+        <attr name="back" format="boolean" />
+    </declare-styleable>
+</resources>

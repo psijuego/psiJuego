@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Elements Dimensions. -->
+    <dimen name= "dp0">0dp</dimen>
+    <dimen name= "dp4">4dp</dimen>
+    <dimen name= "dp8">8dp</dimen>
+    <dimen name= "dp12">12dp</dimen>
+    <dimen name= "dp14">14dp</dimen>
+    <dimen name= "dp16">16dp</dimen>
+    <dimen name= "dp20">20dp</dimen>
+    <dimen name= "dp24">24dp</dimen>
+    <dimen name= "dp32">32dp</dimen>
+    <dimen name= "dp40">40dp</dimen>
+    <dimen name= "dp48">48dp</dimen>
+    <dimen name= "dp56">56dp</dimen>
+    <dimen name= "dp64">64dp</dimen>
+    <dimen name= "dp72">72dp</dimen>
+    <dimen name= "dp80">80dp</dimen>
+    <dimen name= "dp88">88dp</dimen>
+    <dimen name= "dp96">96dp</dimen>
+    <dimen name= "dp120">120dp</dimen>
+    <dimen name= "dp136">136dp</dimen>
+    <dimen name= "dp152">152dp</dimen>
+    <dimen name= "dp168">168dp</dimen>
+    <dimen name= "dp184">184dp</dimen>
+    <dimen name= "dp208">208dp</dimen>
+    <dimen name= "dp272">272dp</dimen>
+
+    <!-- Text Dimensions. -->
+
+    <dimen name= "sp0">0sp</dimen>
+    <dimen name= "sp4">4sp</dimen>
+    <dimen name= "sp8">8sp</dimen>
+    <dimen name= "sp12">12sp</dimen>
+    <dimen name= "sp14">14sp</dimen>
+    <dimen name= "sp16">16sp</dimen>
+    <dimen name= "sp20">20sp</dimen>
+    <dimen name= "sp24">24sp</dimen>
+    <dimen name= "sp32">32sp</dimen>
+    <dimen name= "sp40">40sp</dimen>
+    <dimen name= "sp48">48sp</dimen>
+    <dimen name= "sp56">56sp</dimen>
+    <dimen name= "sp64">64sp</dimen>
+    <dimen name= "sp72">72sp</dimen>
+    <dimen name= "sp80">80sp</dimen>
+    <dimen name= "sp88">88sp</dimen>
+    <dimen name= "sp96">96sp</dimen>
+    <dimen name= "sp120">120sp</dimen>
+    <dimen name= "sp136">136sp</dimen>
+    <dimen name= "sp152">152sp</dimen>
+    <dimen name= "sp168">168sp</dimen>
+    <dimen name= "sp184">184sp</dimen>
+    <dimen name= "sp208">208sp</dimen>
+    <dimen name= "sp272">272sp</dimen>
+</resources>

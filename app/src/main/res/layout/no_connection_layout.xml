@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:id="@+id/llWithoutConnection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp120"
+            android:src="@drawable/ic_no_connection" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp32"
+            android:layout_marginTop="@dimen/dp16"
+            android:layout_marginRight="@dimen/dp32"
+            android:fontFamily="@font/roboto_medium"
+            android:text="No hay conexion a internet"
+            android:gravity="center_horizontal|top"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp20"/>
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dp40"
+            android:layout_marginTop="@dimen/dp48"
+            android:text="Reintentar"
+            android:layout_marginRight="@dimen/dp40" />
+    </LinearLayout>
+</merge>
