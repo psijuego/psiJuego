@@ -11,6 +11,7 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.zxing.BarcodeFormat
@@ -19,12 +20,16 @@ import com.psijuego.R
 import com.psijuego.core.utils.ResourceState
 import com.psijuego.core.utils.UtilFile
 import com.psijuego.core.utils.UtilPDF
+import com.psijuego.core.utils.UtilPermissions
 import com.psijuego.core.utils.UtilShare
 import com.psijuego.data.model.ui.CategoryUI
 import com.psijuego.data.model.ui.HomeUI
 import com.psijuego.databinding.FragmentExportReportBinding
 import com.psijuego.ui.views.report.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 
 @AndroidEntryPoint
@@ -42,6 +47,7 @@ class ExportReportFragment : Fragment() {
     private var qrUri: Uri? = null
     private var bitmap: Bitmap? = null
     private val urisList = ArrayList<Uri>()
+    private val utilPermissions = UtilPermissions.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,7 +55,9 @@ class ExportReportFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentExportReportBinding.inflate(inflater, container, false)
+        setUpComponents()
         setUpViewModel()
+        createPdfDocument()
         return binding.root
     }
 
@@ -57,11 +65,35 @@ class ExportReportFragment : Fragment() {
         listCategoryUI = viewModel.categoryUI.value ?: emptyList()
         homeUI = viewModel.homeUI.value ?: HomeUI()
         conclusion = viewModel.conclusion.value ?: ""
-        createPdfDocument()
+    }
+
+    private fun createPdfDocument() {
+        lifecycleScope.launch(Dispatchers.Main) {
+            val pdfGenerationResult = withContext(Dispatchers.IO) {
+                UtilPDF.getInstance().createPdf(homeUI, listCategoryUI, conclusion)
+            }
+
+            pdfGenerationResult?.let {
+                pdfFile = it.first
+                pdfUri = it.second
+            }
+
+            binding.pbLoading.visibility = View.GONE // Ocultar el indicador de carga
+            setUpObserver()
+            viewModel.uploadDocument(pdfFile)
+            setUpPDFComponent()
+        }
+    }
+
+    private fun setUpObserver(){
         viewModel.uploadState.observe(viewLifecycleOwner) {
             when (it) {
                 is ResourceState.Success -> {
-                    Toast.makeText(requireContext(), resources.getString(R.string.qr_created), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        resources.getString(R.string.qr_created),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     binding.topAppBar.menu.findItem(R.id.new_qr).isEnabled = true
                     createQr(it.data)
                 }
@@ -74,23 +106,9 @@ class ExportReportFragment : Fragment() {
             }
         }
     }
-
-    private fun createPdfDocument() {
-        UtilPDF.getInstance().createPdf(homeUI, listCategoryUI, conclusion).let {
-            pdfFile = it.first
-            pdfUri = it.second
-        }
-        viewModel.uploadDocument(pdfFile)
-        setUpComponent()
-    }
-
-    private fun setUpComponent() {
+    private fun setUpComponents() {
         with(binding) {
-
-            if (pdfFile.exists()) {
-                pdfView.fromFile(pdfFile).load()
-            }
-
+            pbLoading.visibility = View.VISIBLE
             topAppBar.setOnMenuItemClickListener { menuItem ->
                 val selectedFile = if (isPdfSelect) pdfFile else qrFile
                 when (menuItem.itemId) {
@@ -106,16 +124,27 @@ class ExportReportFragment : Fragment() {
                     }
 
                     R.id.save -> {
+                        if (utilPermissions.validatePermissions(requireActivity())) {
                         onSave(selectedFile)
+                        }else{
+                            utilPermissions.requirePermission(requireContext(), requireActivity())
+                        }
                         true
                     }
 
                     else -> super.onContextItemSelected(menuItem)
                 }
             }
-
             btnNewReport.setOnClickListener { confirmAction() }
+        }
 
+    }
+
+    private fun setUpPDFComponent() {
+        with(binding) {
+            if (pdfFile.exists()) {
+                pdfView.fromFile(pdfFile).load()
+            }
         }
     }
 

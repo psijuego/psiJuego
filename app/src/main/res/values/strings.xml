@@ -5,9 +5,11 @@
     <string name="before_starting">Antes de empezar</string>
     <string name="cancel">Cancelar</string>
     <string name="cancel_supporting_text">Perderás toda la información cargada hasta el momento</string>
+    <string name="require_permissions_supporting_text">¿Desea configurarlos?</string>
     <string name="categories_failed">Se produjo un error al cargar las categorías.</string>
     <string name="categories_not_found">No se encontraron categorías.</string>
     <string name="confirm_cancel">¿Desea cancelar?</string>
+    <string name="permission_required">Se requieren los permisos de fotos y videos.</string>
     <string name="confirm_continue">¿Desea continuar?</string>
     <string name="confirm_new_report">¿Desea empezar un nuevo informe?</string>
     <string name="conclusions">Conclusiones</string>

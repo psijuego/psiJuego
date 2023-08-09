@@ -3,6 +3,7 @@ package com.psijuego.core
 class Constants {
 
     companion object {
+        const val REQUEST_CODE = 1
         const val INDICATORS = "indicators"
         const val DESCRIPTION = "description"
         const val IMAGE_DIRECTORY = "images"

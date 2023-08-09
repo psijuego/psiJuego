@@ -27,23 +27,6 @@ class WelcomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentWelcomeBinding.inflate(inflater, container, false)
-        setUpComponents()
         return binding.root
-    }
-
-    private fun setUpComponents() {
-        binding.welcomeFragment.setOnClickListener {
-            navigate()
-        }
-
-        GlobalScope.launch(Dispatchers.Main) {
-            delay(400)
-            navigate()
-        }
-    }
-
-    private fun navigate() {
-        Navigation.findNavController(binding.root)
-            .navigate(R.id.action_welcomeFragment_to_homeFragment)
     }
 }

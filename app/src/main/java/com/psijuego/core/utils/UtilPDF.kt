@@ -45,7 +45,7 @@ class UtilPDF {
     }
 
     @Throws(FileNotFoundException::class)
-    fun createPdf(
+    suspend fun createPdf(
         homeUI: HomeUI,
         listCategoryUI: List<CategoryUI>,
         conclusion: String
@@ -296,7 +296,7 @@ class UtilPDF {
             try {
                 val bitmap = getBitmapFromUri(homeUI.uri!!)
                 val byteArrayOutputStream = ByteArrayOutputStream()
-                bitmap?.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
+                bitmap?.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream)
                 val imageData = ImageDataFactory.create(byteArrayOutputStream.toByteArray())
                 val image = Image(imageData)
                 image.scaleToFit(200f, Float.MAX_VALUE)

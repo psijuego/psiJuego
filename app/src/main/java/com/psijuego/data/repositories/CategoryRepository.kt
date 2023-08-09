@@ -15,8 +15,18 @@ class CategoryRepository @Inject constructor(
                 ParameterUI(it.key, it.value.toString(), false)
             } ?: emptyList()
 
-            CategoryUI(category, parameterList)
+            CategoryUI(removeNumericPrefix(category), parameterList)
         }
+
         return categoriesList
+    }
+
+    private fun removeNumericPrefix(categoryName: String): String {
+        val underscoreIndex = categoryName.indexOf('_')
+        return if (underscoreIndex != -1) {
+            categoryName.substring(underscoreIndex + 1)
+        } else {
+            categoryName
+        }
     }
 }
