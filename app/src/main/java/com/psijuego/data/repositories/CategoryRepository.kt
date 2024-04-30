@@ -11,8 +11,8 @@ class CategoryRepository @Inject constructor(
     suspend fun getCategoriesList(): List<CategoryUI> {
         val categoriesList = db.getDataFromFirestore().map { document ->
             val category = document.id
-            val parameterList = document.data?.entries?.mapNotNull {
-                ParameterUI(it.key, it.value.toString(), false)
+            val parameterList = document.data?.entries?.sortedBy { it.key }?.mapNotNull {
+                ParameterUI(removeNumericPrefix(it.key), it.value.toString(), false)
             } ?: emptyList()
 
             CategoryUI(removeNumericPrefix(category), parameterList)
